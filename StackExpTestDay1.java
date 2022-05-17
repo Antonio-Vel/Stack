@@ -1,8 +1,15 @@
+import java.util.*;
 public class StackExpTestDay1
 {
  public static double evalAns(String exp)
  {
-   return -1;
+   Stack computer = new Stack();
+   for(int i = 0; i < exp.length(); i++)
+   {
+     if(charAt(i) == '1' || charAt(i) == '1' || charAt(i) == '1' ||
+        charAt(i) == '1' || charAt(i) == '1' || charAt(i) == '1' ||
+        charAt(i) == '1' || charAt(i) == '1' || charAt(i) == '1' ||);
+   }
  }
  
   public static void main(String[] args)
