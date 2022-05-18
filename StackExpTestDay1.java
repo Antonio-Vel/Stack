@@ -3,13 +3,60 @@ public class StackExpTestDay1
 {
  public static double evalAns(String exp)
  {
-   Stack computer = new Stack();
+   Stack<Double> s = new Stack<Double>();
    for(int i = 0; i < exp.length(); i++)
    {
-     if(charAt(i) == '1' || charAt(i) == '1' || charAt(i) == '1' ||
-        charAt(i) == '1' || charAt(i) == '1' || charAt(i) == '1' ||
-        charAt(i) == '1' || charAt(i) == '1' || charAt(i) == '1' ||);
+     char c = exp.charAt(i);
+     if(c == '1' || c == '2' || c == '3' ||
+        c == '4' || c == '5' || c == '6' ||
+        c == '7' || c == '8' || c == '9'  )
+     {s.push(Double.parseDouble(exp.substring(i,i+1)));}
+     else
+     {
+       if(c != '!')
+       {
+         double num1 = s.pop();
+         double num2 = s.pop();
+         switch (c)
+         {
+           case '+':
+             
+             s.push(num1+num2);
+             break;
+           case '-':
+             
+             s.push(num2-num1);
+             break;
+           case '*':
+             
+             s.push(num1*num2);
+             break;
+           case '/':
+             
+             s.push(num2/num1);
+             break;
+           case '%':
+             
+             s.push(num2%num1);
+             break;
+           case '^':
+             
+             s.push(Math.pow(num2,num1));
+             break;
+         }
+       }
+       else
+       {
+         double num1 = s.pop();
+         double n = num1;
+         for(double x = num1-1; x>=1; x--)
+         {n*=x;}
+         s.push(n);
+         break;}
+     }
+     
    }
+   return s.pop();
  }
  
   public static void main(String[] args)
@@ -92,7 +139,7 @@ public class StackExpTestDay1
   System.out.println();
   System.out.println("Number of correct answer: " + c);
   System.out.println("Number of incorect answer: " + w);
-  System.out.println("Accuracy: " + Math.round((double)c/(c+w)*100)/100 + "%");
+  System.out.println("Accuracy: " + Math.round((double)c/(c+w)*100) + "%");
   }
 }
 
